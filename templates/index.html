@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<title>Covid-19 X-Ray Detector</title>
+<head>
+	<title>Covid-19 X-ray Detector</title>
+	<link rel="stylesheet" href=
+"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity=
+"sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+        crossorigin="anonymous">
+<style type="text/css">
+
+.heading{
+	font-weight: 100;
+	font-size: 4em;
+	text-shadow: 1px 1px 5px black;
+}
+img{
+	height: 200px;
+	width: 200px;
+	 border: 10px solid;
+
+}
+.text1{
+	font-size: 32px;
+	font-style: italic;
+}
+	
+</style>
+
+</head>
+<body >
+
+	<div class="container body">
+	 <div class="jumbotron">
+	 	<div class="container">
+<h1 class="heading">
+	Covid-19 X-Ray Detector
+</h1>
+<left>Upload your X-ray to generate Report..</left>
+ 
+<br><br>
+<br><br>
+</div>
+</div>
+<form class="form-inline" method="POST" action="/" enctype="multipart/form-data" >
+	<label><b>Name: &nbsp;&nbsp; </b></label><br>
+	<input class="form-control" type="text" name="username" placeholder="Enter your Name"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<label><b>X-ray: &nbsp;&nbsp; </b></label>&nbsp;
+	<input class="form-control" type="file" name="userfile" placeholder="Upload your X-ray">&nbsp;&nbsp;&nbsp;&nbsp;
+	<button type="submit" class="btn btn-primary"> Upload </button>
+</form>
+<br>
+<br>
+
+{% if your_result %}
+<div class="row">
+	<div class="col-sm-4">
+	<img src="{{your_result['image']}}" >
+	</div>
+	<div class="col-sm-4">
+	<p class="text1">Patient Report :</p>
+ <p><b> {{name}} {{your_result['res']}} </b></p>
+</div>
+</div>
+{% endif %}
+</div>
+
+</body>
+</html>
